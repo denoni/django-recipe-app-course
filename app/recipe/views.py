@@ -53,7 +53,6 @@ class RecipeViewSet(viewsets.ModelViewSet):
         """Convert a list of strings to integers"""
         return [int(str_id) for str_id in qs.split(',')]
 
-
     def get_queryset(self):
         """Retrieve recipes for the authenticated user"""
         tags = self.request.query_params.get('tags')
@@ -127,6 +126,7 @@ class BaseRecipeAttrViewSet(mixins.DestroyModelMixin,
         return queryset.filter(
             user=self.request.user
         ).order_by('-name').distinct()
+
 
 class TagViewSet(BaseRecipeAttrViewSet):
     """Manage tags in the database"""

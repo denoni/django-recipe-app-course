@@ -70,7 +70,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         self._get_or_create_ingredients(ingredients, recipe)
 
         return recipe
-    
+
     def update(self, instance, validated_data):
         """Update recipe."""
         tags = validated_data.pop('tags', None)
